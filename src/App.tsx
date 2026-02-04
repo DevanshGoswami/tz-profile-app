@@ -70,8 +70,8 @@ const LandingPlaceholder: React.FC = () => {
 };
 
 const TrainerProfileRouteWrapper: React.FC = () => {
-const { trainerSlug } = useParams<{ trainerSlug: string }>();
-  if (!trainerSlug) return <LandingPlaceholder />;
+  const { trainerId } = useParams();
+  if (!trainerId) return <LandingPlaceholder />;
   return <TrainerProfilePage />;
 };
 
@@ -82,7 +82,7 @@ const App: React.FC = () => {
       <Box sx={{ flex: 1 }}>
         <Routes>
           <Route path="/" element={<LandingPlaceholder />} />
-          <Route path="/:trainerSlug" element={<TrainerProfileRouteWrapper />} />
+          <Route path="/:trainerId" element={<TrainerProfileRouteWrapper />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Box>
